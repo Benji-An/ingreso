@@ -1,0 +1,562 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background: white;
+    padding-top: 25px;
+    font-size: 17px;
+}
+
+.btn2 {
+    background: #c1121f;
+    color: white;
+    border: none;
+    padding: 6px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+h2, .tittle {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.photo-registration {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 300px;
+    position: relative;
+    left: 25px;
+}
+
+.photo-circle {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.photo-icon {
+    color: white;
+    font-size: 3rem;
+}
+
+.camera-btn {
+    background: #007bff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.camera-btn:hover {
+    background: #0056b3;
+}
+
+.camera-btn i {
+    font-size: 16px;
+}
+
+.form-container {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.qr-field {
+    background-color: #f8f9ff;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.action-buttons .btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+#vehicleFields {
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+#vehicleFields.show {
+    opacity: 1;
+    max-height: 200px;
+}
+
+#vehicleFields.hide {
+    opacity: 0;
+    max-height: 0;
+}
+
+/* Estilos para formularios existentes */
+form {
+    width: 100%;
+    margin: auto;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background: #f9f9f9;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 500;
+    color: #555;
+    margin-left: 2px;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 6px;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background: #f9f9f9;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: #1a237e;
+    outline: none;
+}
+
+button, .btn {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.2s;
+    margin-top: 1.5rem;
+}
+
+button:hover, .btn:hover {
+    background-color: #0b5ed7;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Tabla ejecutiva y formal */
+.table-formal {
+    margin-top: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.table-formal th, .table-formal td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-formal th {
+    background: #f1f3f5;
+    color: #333;
+    font-weight: 600;
+}
+
+.table-formal tr {
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.table-formal button {
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    border: none;
+    background: #dc3545;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.table-formal button:hover {
+    background: #b52a37;
+}
+
+.tittle {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
+.table {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin-bottom: 2rem;
+}
+
+.table thead {
+    background: #f8f9fa;
+    font-weight: bold;
+}
+
+.table th, .table td {
+    vertical-align: middle !important;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.6rem 0.5rem;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f4f8fb;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+@media (max-width: 900px) {
+    .main-box {
+        max-width: 98vw;
+        padding: 18px 6px;
+    }
+    .table-formal, thead, tbody, th, td, tr {
+        display: block;
+    }
+    .table-formal th, .table-formal td {
+        padding: 10px 8px;
+    }
+}
+
+.photo-circle .photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-circle:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-circle .delete-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.photo-circle .delete-btn:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.visitante-bloque {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.visitante-bloque .photo-registration {
+    position: static;
+    left: auto;
+    max-width: 300px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.visitante-bloque .form-container {
+    box-shadow: none;
+    padding: 0;
+}
+
+.camera-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.camera-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.camera-preview {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #2563eb;
+    margin-bottom: -100px;
+}
+
+.camera-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-top: 0;
+}
+
+.btn-capture {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-capture i {
+    font-size: 16px;
+}
+
+.btn-cancel {
+    background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-cancel i {
+    font-size: 16px;
+}
+
+/* Estilos para campos de vehículo */
+.vehiculoContainer {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.vehiculoContainer.hidden {
+    display: none;
+}
+
+/* Estilos para campos de manilla */
+.manillaContainer.hidden {
+    display: none;
+}
+
+/* Estilos para checkbox */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.form-check-input {
+    margin-right: 0.5rem;
+    margin-top: 0;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+/* Estilos para botones */
+.btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilos para el campo QR */
+.qr-field {
+    background-color: #f8f9ff;
+    border: 2px dashed #007bff;
+}
+
+.qr-field:focus {
+    background-color: #f0f8ff;
+    border-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .photo-registration {
+        left: 0;
+        margin: 0 auto 20px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .camera-preview {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .camera-container {
+        padding: 20px;
+        max-width: 95vw;
+        width: 95vw;
+    }
+    
+    .camera-controls {
+        gap: 10px;
+        flex-direction: row;
+    }
+    
+    .btn-capture, .btn-cancel {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}

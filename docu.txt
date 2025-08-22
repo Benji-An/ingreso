@@ -1,0 +1,55 @@
+Campo para crear los propietarios (inmueble, nombre completo, email, ocupación máxima) y asignarle usuario a cada uno para que puedan ver la informacion de su inmueble. (Listo)
+
+Que en el registro aparezca todas las personas que tienen ingreso... (tanto como el titular como los acompañantes) LISTO
+
+Agregarle filtro para generar los informes (fecha, inmueble, nombres de visitante, etc) los cuales se puedan enviar por correo y exportar (Listo)
+
+al momento de hacer el registro .... tenga el campo para colocar la fecha de nacimiento, nacionalidad y de que ciudad viene (Listo)
+
+el campo para la foto que se le debe tomar a cada uno de los visitantes, huespedes, servicios publicos, es decir... foto para todos los que ingresen al edificio (Listo)
+
+Tomar foto del acompañante en el registro (listo)
+
+Importacion y exaportacion de plantilla, de datos en la creacion de propietarios (Listo)
+
+Exportar informes en excel (Listo)
+
+Que el propietario pueda exportar informacion en PDF 
+
+Cuando el tipo de documento sea de tipo extranjero se pida nacionalidad
+
+Corregir hora de salida (Listo)
+
+Que el operador pueda consultar las salidas de las ultimas 24 horas (Listo)
+
+Mejorar aspecto visual del operador para que salga mas compactada (Listo)
+
+Que se pueda imprimir informacion del registro de los huespedes por un codigo unico consecutivo ascendente por apartamento (operador)
+
+Agregar condicional si al familiar del huesped usa manilla
+
+El operador debe ver las reservas pendientes y tambien puede activarlas (Listo)
+
+Que todo lo que se ingrese se ingrese en letras mayusculas
+
+Que el QR se pueda compartir
+
+Que el propietario pueda poner el tipo de usuario cuando se haga la reserva
+
+Hacer un navbar en donde se ponga el historial (Agregar filtros) y reservas
+
+Que el propietario peuda seleccionar entre todos los inmueble que posea
+
+Que para el QR de reserva tenga una fecha de caducidad
+
+Que se cambie la opcion de ingresar acompañantes y se ponga la opcion de ingresar mas personas
+
+Que el correo tambien notifique la canitdad de personas con sus datos
+
+Que el correo tambien notifique las salidas
+
+A la hora de exportar el excel de los informes, tambien se visualice la hora correctamente
+
+Que a la hora de crear el propietario se ponga el tipo uso de la vivienda (Residencial, turistico[Regitro nacional de turismo y fecha de vencimiento])
+
+Que al crear el propietario tambien se pida informacion de transporte
