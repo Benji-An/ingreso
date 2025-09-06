@@ -77,7 +77,6 @@
             $ret = $this->init($spec);
             if($ret < 0) {
                 throw new Exception('block alloc error');
-                return null;
             }
 
             $this->count = 0;
@@ -159,6 +158,15 @@
         public $width;
         public $data; 
         
+        //----------------------------------------------------------------------
+        public function __construct()
+        {
+            // No arguments required, initialize properties if needed
+            $this->version = null;
+            $this->width = null;
+            $this->data = null;
+        }
+
         //----------------------------------------------------------------------
         public function encodeMask(QRinput $input, $mask)
         {
@@ -243,15 +251,14 @@
         //----------------------------------------------------------------------
         public function encodeString8bit($string, $version, $level)
         {
-            if(string == NULL) {
+            if($string == NULL) {
                 throw new Exception('empty string!');
-                return NULL;
             }
 
             $input = new QRinput($version, $level);
             if($input == NULL) return NULL;
 
-            $ret = $input->append($input, QR_MODE_8, strlen($string), str_split($string));
+            $ret = $input->append(QR_MODE_8, strlen($string), str_split($string));
             if($ret < 0) {
                 unset($input);
                 return NULL;
@@ -265,7 +272,6 @@
 
             if($hint != QR_MODE_8 && $hint != QR_MODE_KANJI) {
                 throw new Exception('bad hint');
-                return NULL;
             }
 
             $input = new QRinput($version, $level);
