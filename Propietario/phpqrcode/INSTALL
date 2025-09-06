@@ -1,4 +1,4 @@
-== REQUIREMENTS ==
+<!-- == REQUIREMENTS ==
 
  * PHP5
  * PHP GD2 extension with JPEG and PNG support
@@ -16,12 +16,12 @@ provided comments and project wiki page (links in README file)
 
 == QUICK START ==
 
-Notice: probably you should'nt use all of this in same script :)
+Notice: probably you should'nt use all of this in same script :) -->
 
-<?phpb
+<?php
 
 //include only that one, rest required files will be included from it
-include "qrlib.php"
+include "qrlib.php";
 
 //write code into file, Error corection lecer is lowest, L (one form: L,M,Q,H)
 //each code square will be 4x4 pixels (4x zoom)
@@ -46,15 +46,13 @@ QRtools::buildCache();
 $tab = $qr->encode('PHP QR Code :)');
 QRspec::debug($tab, true);
 
-== TCPDF INTEGRATION ==
+// == TCPDF INTEGRATION ==
 
-Inside bindings/tcpdf you will find slightly modified 2dbarcodes.php.
-Instal phpqrcode liblaty inside tcpdf folder, then overwrite (or merge)
-2dbarcodes.php 
+// Inside bindings/tcpdf you will find slightly modified 2dbarcodes.php.
+// Instal phpqrcode liblaty inside tcpdf folder, then overwrite (or merge)
+// 2dbarcodes.php 
 
-Then use similar as example #50 from TCPDF examples:
-
-<?php
+// Then use similar as example #50 from TCPDF examples:
 
 $style = array(
     'border' => true,
@@ -64,4 +62,9 @@ $style = array(
 );
 
 //code name: QR, specify error correction level after semicolon (L,M,Q,H)
-$pdf->write2DBarcode('PHP QR Code :)', 'QR,L', '', '', 30, 30, $style, 'N');
+// Make sure you have included TCPDF and are using the correct class
+// Example:
+// require_once('tcpdf_include.php');
+// $pdf = new TCPDF();
+
+$pdf->write2DBarcode('PHP QR Code :)', 'QRCODE,L', '', '', 30, 30, $style, 'N');
