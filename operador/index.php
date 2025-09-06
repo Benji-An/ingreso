@@ -121,7 +121,20 @@
             const agregarBtn = document.getElementById('agregarVisitanteBtn');
             let visitanteIndex = 0;
 
+            function getReservaParams() {
+                const params = {};
+                const urlParams = new URLSearchParams(window.location.search);
+                [
+                    'numero_documento', 'primer_apellido', 'segundo_apellido', 'primer_nombre', 'segundo_nombre',
+                    'genero', 'fecha_nacimiento', 'torre', 'apartamento', 'reserva_id'
+                ].forEach(key => {
+                    params[key] = urlParams.get(key) || '';
+                });
+                return params;
+            }
+
             function crearBloqueVisitante(idx) {
+                const reserva = idx === 0 ? getReservaParams() : {};
                 return `
                 <div class="visitante-bloque border rounded p-3 mb-3 position-relative">
                     <button type="button" class="btn-close position-absolute top-0 end-0 m-2 eliminarVisitanteBtn" title="Quitar visitante" style="z-index:2;"></button>
@@ -155,7 +168,7 @@
                             <label class="form-label">Tipo de Documento:</label>
                             <select name="visitantes[${idx}][tipo_documento]" class="form-select" required>
                                 <option value="">Seleccione</option>
-                                <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                                <option value="Cédula de Ciudadanía" ${reserva.numero_documento ? 'selected' : ''}>Cédula de Ciudadanía</option>
                                 <option value="Cédula de Extranjería">Cédula de Extranjería</option>
                                 <option value="Pasaporte">Pasaporte</option>
                             </select>
@@ -166,50 +179,50 @@
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Número de Documento:</label>
-                            <input type="text" name="visitantes[${idx}][numero_documento]" class="form-control" required>
+                            <input type="text" name="visitantes[${idx}][numero_documento]" class="form-control" required value="${reserva.numero_documento || ''}">
                         </div>
                     </div>
                     <div class="row g-2 mt-2">
                         <div class="col-md-3">
                             <label class="form-label">Primer Apellido:</label>
-                            <input type="text" name="visitantes[${idx}][primer_apellido]" class="form-control" required>
+                            <input type="text" name="visitantes[${idx}][primer_apellido]" class="form-control" required value="${reserva.primer_apellido || ''}">
                         </div>
                         <div class="col-md-3">
                             <label class="form-label">Segundo Apellido:</label>
-                            <input type="text" name="visitantes[${idx}][segundo_apellido]" class="form-control" required>
+                            <input type="text" name="visitantes[${idx}][segundo_apellido]" class="form-control" required value="${reserva.segundo_apellido || ''}">
                         </div>
                         <div class="col-md-3">
                             <label class="form-label">Primer Nombre:</label>
-                            <input type="text" name="visitantes[${idx}][primer_nombre]" class="form-control" required>
+                            <input type="text" name="visitantes[${idx}][primer_nombre]" class="form-control" required value="${reserva.primer_nombre || ''}">
                         </div>
                     </div>
                     <div class="row g-2 mt-2">
                         <div class="col-md-3">
                             <label class="form-label">Segundo Nombre (opcional):</label>
-                            <input type="text" name="visitantes[${idx}][segundo_nombre]" class="form-control">
+                            <input type="text" name="visitantes[${idx}][segundo_nombre]" class="form-control" value="${reserva.segundo_nombre || ''}">
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Género:</label>
                             <select name="visitantes[${idx}][genero]" class="form-select" required>
                                 <option value="">Seleccione</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Femenino</option>
-                                <option value="O">Otro</option>
+                                <option value="M" ${reserva.genero === 'M' ? 'selected' : ''}>Masculino</option>
+                                <option value="F" ${reserva.genero === 'F' ? 'selected' : ''}>Femenino</option>
+                                <option value="O" ${reserva.genero === 'O' ? 'selected' : ''}>Otro</option>
                             </select>
                         </div>
                     </div>
                     <div class="row g-2 mt-2">
                         <div class="col-md-4">
                             <label class="form-label">Fecha de Nacimiento:</label>
-                            <input type="date" name="visitantes[${idx}][fecha_nacimiento]" class="form-control" placeholder="YYYY-MM-DD" required>
+                            <input type="date" name="visitantes[${idx}][fecha_nacimiento]" class="form-control" placeholder="YYYY-MM-DD" required value="${reserva.fecha_nacimiento || ''}">
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Torre:</label>
-                            <input type="text" name="visitantes[${idx}][torre]" class="form-control" required>
+                            <input type="text" name="visitantes[${idx}][torre]" class="form-control" required value="${reserva.torre || ''}">
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Apartamento:</label>
-                            <input type="text" name="visitantes[${idx}][apartamento]" class="form-control" required>
+                            <input type="text" name="visitantes[${idx}][apartamento]" class="form-control" required value="${reserva.apartamento || ''}">
                         </div>
                     </div>
                     <div class="row g-2 mt-2">
@@ -250,7 +263,7 @@
                         </div>
                     </div>
                     <input type="hidden" name="visitantes[${idx}][foto_visitante]" id="fotoVisitante_${idx}">
-                    <input type="hidden" name="visitantes[${idx}][reserva_id]" value="<?php echo isset($_GET['reserva_id']) ? htmlspecialchars($_GET['reserva_id']) : ''; ?>">
+                    <input type="hidden" name="visitantes[${idx}][reserva_id]" value="${reserva.reserva_id || ''}">
                 </div>
                 `;
             }

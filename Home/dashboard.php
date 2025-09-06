@@ -17,7 +17,6 @@ require_once '../config/connection.php';
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,9 +25,10 @@ require_once '../config/connection.php';
     <title>Home</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <div class="sidebar">
+    <div class="sidebar" id="navbar">
         <h2>Dashboard</h2>
         <a href="dashboard.php">Inicio</a>
         <a href="estadisticas.php">Estadísticas</a>
@@ -37,19 +37,23 @@ require_once '../config/connection.php';
         <a href="reservas.php">Reservas</a>
         <a href="../InicioSesion/CerrarSesion.php">Cerrar sesión</a>
     </div>
-    <div class="main">
+    <div class="title">
         <h1>Bienvenido al Dashboard</h1>
-        <div class="card">
-            <h3>Resumen de Actividades</h3>
-            <p>Aquí puedes ver un resumen de tus actividades recientes.</p>
-        </div>
-        <div class="card">
-            <h3>Estadísticas Recientes</h3>
-            <p>Visualiza las estadísticas más recientes aquí.</p>
-        </div>
-        <div class="card">
-            <h3>Informes Generales</h3>
-            <p>Consulta los informes generales de tu sistema.</p>
+    </div>
+    <div class="main">
+        <div class="container-cards">
+            <div class="card">
+                <h3>Resumen de Actividades</h3>
+                <p>Aquí puedes ver un resumen de tus actividades recientes.</p>
+            </div>
+            <div class="card">
+                <h3>Estadísticas Recientes</h3>
+                <p>Visualiza las estadísticas más recientes aquí.</p>
+            </div>
+            <div class="card">
+                <h3>Informes Generales</h3>
+                <p>Consulta los informes generales de tu sistema.</p>
+            </div>
         </div>
     </div>
 </body>

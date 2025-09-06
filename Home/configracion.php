@@ -141,8 +141,10 @@ $propietarios = $conexion->query("SELECT * FROM propietarios");
         <a href="../InicioSesion/CerrarSesion.php">Cerrar sesión</a>
     </div>
     <div class="main">
-        <h1>Gestión de Propietarios</h1>
-        <div class="card" >
+        <div class="title3">
+            <h1>Gestión de Propietarios</h1>
+        </div>
+        <div class="card carta" >
             <h3 class="mb-3"><?php echo $editData ? "Editar Propietario" : "Crear Propietario"; ?></h3>
             <?php if (isset($mensaje)) { echo "<p style='color:green;'>$mensaje</p>"; } ?>
             <form action="" method="post" enctype="multipart/form-data">
@@ -191,11 +193,8 @@ $propietarios = $conexion->query("SELECT * FROM propietarios");
                 </div>
             </form>
         </div>
-        <div class="card mt-4" >
+        <div class="card mt-2" >
             <h3 class="mb-3">Importar/Exportar Propietarios</h3>
-            <div class="mb-3">
-                <a href="configracion.php?descargar_plantilla=1" class="btn btn-info">Descargar plantilla CSV</a>
-            </div>
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="archivo_csv">Cargar archivo CSV:</label>
@@ -203,10 +202,11 @@ $propietarios = $conexion->query("SELECT * FROM propietarios");
                 </div>
                 <div class="mt-3">
                     <button type="submit" name="cargar_csv" class="btn btn-primary">Cargar Propietarios</button>
+                     <a href="configracion.php?descargar_plantilla=1" class="btn btn-success downoald">Descargar plantilla CSV</a>
                 </div>
             </form>
         </div>
-        <div class="card mt-4" >
+        <div class="card mt-2" >
             <h3 class="mb-3">Lista de Propietarios</h3>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
@@ -240,7 +240,6 @@ $propietarios = $conexion->query("SELECT * FROM propietarios");
                 </table>
             </div>
         </div>
-        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

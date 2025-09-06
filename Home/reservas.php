@@ -35,36 +35,8 @@ $sql = 'SELECT r.*, p.nombre AS nombre_propietario
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .reservas {
-            margin-left: 220px;
-            padding: 30px 20px;
-        }
-        .reservas h2 {
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        .table-reservas {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            overflow: hidden;
-        }
-        .table-reservas th {
-            background: #2a4365;
-            color: #fff;
-            font-weight: 500;
-            text-align: center;
-        }
-        .table-reservas td {
-            vertical-align: middle;
-            text-align: center;
-        }
-        .table-reservas tr:nth-child(even) {
-            background: #f4f8fb;
-        }
-    </style>
 </head>
 <body>
     <div class="sidebar">

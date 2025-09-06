@@ -8,10 +8,24 @@ $conn = $connection->connect();
 // Procesar el ingreso de la reserva
 if (isset($_POST['ingresar_reserva_id'])) {
     $id = $_POST['ingresar_reserva_id'];
+    // Guardar los datos de la reserva para pasarlos a index.php
+    $params = [
+        'numero_documento' => $_POST['numero_documento'],
+        'primer_apellido' => $_POST['primer_apellido'],
+        'segundo_apellido' => $_POST['segundo_apellido'],
+        'primer_nombre' => $_POST['primer_nombre'],
+        'segundo_nombre' => $_POST['segundo_nombre'],
+        'genero' => $_POST['genero'],
+        'fecha_nacimiento' => $_POST['fecha_nacimiento'],
+        'torre' => $_POST['torre'],
+        'apartamento' => $_POST['apartamento'],
+        'reserva_id' => $_POST['ingresar_reserva_id']
+    ];
     $stmt = $conn->prepare("UPDATE reservas SET estado = 'Inactivo' WHERE id = ?");
     $stmt->execute([$id]);
-    // Recargar para ver el cambio
-    header("Location: " . $_SERVER['PHP_SELF']);
+    // Redirigir a index.php con los datos de la reserva
+    $query = http_build_query($params);
+    header(header: "Location: index.php?" . $query);
     exit;
 }
 
@@ -80,23 +94,20 @@ $conn = null;
                         <td><?php echo $reserva['torre']; ?></td>
                         <td><?php echo $reserva['apartamento']; ?></td>
                         <td>
-                            <!-- Botón para ingresar la reserva -->
-                            <a 
-                                href="index.php?
-                                    numero_documento=<?php echo urlencode($reserva['numero_documento']); ?>
-                                    &primer_apellido=<?php echo urlencode($reserva['primer_apellido']); ?>
-                                    &segundo_apellido=<?php echo urlencode($reserva['segundo_apellido']); ?>
-                                    &primer_nombre=<?php echo urlencode($reserva['primer_nombre']); ?>
-                                    &segundo_nombre=<?php echo urlencode($reserva['segundo_nombre']); ?>
-                                    &genero=<?php echo urlencode($reserva['genero']); ?>
-                                    &fecha_nacimiento=<?php echo urlencode($reserva['fecha_nacimiento']); ?>
-                                    &torre=<?php echo urlencode($reserva['torre']); ?>
-                                    &apartamento=<?php echo urlencode($reserva['apartamento']); ?>
-                                    &reserva_id=<?php echo urlencode($reserva['id']); ?>"
-                                class="btn btn-success btn-sm"
-                            >
-                                Ingresar Reserva
-                            </a>
+                            <!-- Formulario para ingresar la reserva -->
+                            <form method="POST" action="" style="display:inline;">
+                                <input type="hidden" name="ingresar_reserva_id" value="<?php echo $reserva['id']; ?>">
+                                <input type="hidden" name="numero_documento" value="<?php echo htmlspecialchars($reserva['numero_documento']); ?>">
+                                <input type="hidden" name="primer_apellido" value="<?php echo htmlspecialchars($reserva['primer_apellido']); ?>">
+                                <input type="hidden" name="segundo_apellido" value="<?php echo htmlspecialchars($reserva['segundo_apellido']); ?>">
+                                <input type="hidden" name="primer_nombre" value="<?php echo htmlspecialchars($reserva['primer_nombre']); ?>">
+                                <input type="hidden" name="segundo_nombre" value="<?php echo htmlspecialchars($reserva['segundo_nombre']); ?>">
+                                <input type="hidden" name="genero" value="<?php echo htmlspecialchars($reserva['genero']); ?>">
+                                <input type="hidden" name="fecha_nacimiento" value="<?php echo htmlspecialchars($reserva['fecha_nacimiento']); ?>">
+                                <input type="hidden" name="torre" value="<?php echo htmlspecialchars($reserva['torre']); ?>">
+                                <input type="hidden" name="apartamento" value="<?php echo htmlspecialchars($reserva['apartamento']); ?>">
+                                <button type="submit" class="btn btn-success btn-sm">Ingresar Reserva</button>
+                            </form>
                             <!-- Botón para eliminar (opcional, ya estaba) -->
                             <button class="btn btn-danger btn-sm" data-id="<?php echo $reserva['id']; ?>">Eliminar</button>
                         </td>
