@@ -53,3 +53,7 @@ A la hora de exportar el excel de los informes, tambien se visualice la hora cor
 Que a la hora de crear el propietario se ponga el tipo uso de la vivienda (Residencial, turistico[Regitro nacional de turismo y fecha de vencimiento])
 
 Que al crear el propietario tambien se pida informacion de transporte
+
+
+
+irdf bdum laqc qltm - contraseña de aplicacion de google
