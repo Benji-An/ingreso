@@ -37,11 +37,11 @@ if ($stmt->execute()) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'benjaminibarrajimnez@gmail.com'; // Tu correo
-        $mail->Password = 'plju mndc idfq ckdp'; // Contraseña de aplicación de Gmail
+        $mail->Password = 'irdf bdum laqc qltm'; // Contraseña de aplicación de Gmail
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
-        $mail->setFrom('tucorreo@gmail.com', 'Sistema de Ingreso');
+        $mail->setFrom('benjaminibarrajimnez@gmail.com', 'Sistema de Ingreso');
         $mail->addAddress($info['propietario_email'], $info['propietario_nombre']);
 
 

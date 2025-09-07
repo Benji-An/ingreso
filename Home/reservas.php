@@ -37,6 +37,9 @@ $sql = 'SELECT r.*, p.nombre AS nombre_propietario
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -132,6 +135,21 @@ $sql = 'SELECT r.*, p.nombre AS nombre_propietario
         });
         doc.save((filename ? filename : "lista_reservas") + ".pdf");
     }
+    $(document).ready(function() {
+        $('#tablaReservas').DataTable({
+            pageLength: 5,
+            lengthChange: false,
+            language: {
+                paginate: {
+                    previous: "Anterior",
+                    next: "Siguiente"
+                },
+                info: "Mostrando _START_ a _END_ de _TOTAL_ reservas",
+                emptyTable: "No hay reservas registradas",
+                search: "Buscar:"
+        }
+    });
+});
     </script>
 </body>
 </html>

@@ -34,81 +34,14 @@ $sql_total_manillas = 'SELECT COUNT(numero_manilla) as total FROM visitantes WHE
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="http://127.0.0.1:5500/ingreso/ingreso/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-    <style>
-        /* Solo para informes.php */
-        .sidebar {
-            transition: left 0.3s;
-        }
-        .sidebar.hidden {
-            left: -260px;
-        }
-        .main {
-            transition: margin-left 0.3s;
-        }
-
-        #tablaInforme {
-            width: 100% !important;
-            white-space: nowrap;      
-        }
-
-        table.dataTable thead th {
-            position: sticky;
-            top: 0;
-            z-index: 2;
-            background: #fff;
-        }
-        .foto-registro {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        #tablaInforme thead tr.filters th {
-            padding: 6px 4px;
-        }
-        #tablaInforme thead tr.filters th input {
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 12px;
-            padding: 4px 6px;
-        }
-
-        .main.full {
-            margin-left: 0 !important;
-        }
-        @media (max-width: 991px) {
-            .sidebar {
-                left: 0;
-                width: 220px;
-            }
-            .main {
-                margin-left: 0 !important;
-            }
-        }
-
-        /* Unificar altura mínima y margen superior de ambas tarjetas */
-        .card2 {
-            min-height: 650px;
-            margin-top: 2rem !important;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        .card2.historico {
-            min-height: 750px;
-        }
-        .card2.monetario {
-            min-height: 450px;
-        }
-    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -121,14 +54,14 @@ $sql_total_manillas = 'SELECT COUNT(numero_manilla) as total FROM visitantes WHE
         <a href="../InicioSesion/CerrarSesion.php">Cerrar sesión</a>
     </div>
     <div class="main">
-        <div class="container mt-4">
+        <div class="container-fluid mt-4">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="informeTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="historico-tab" data-bs-toggle="tab" data-bs-target="#historico" type="button" role="tab" aria-controls="historico" aria-selected="true">Histórico</button>
+                    <button class="btn5 nav-link active text-dark" id="historico-tab" data-bs-toggle="tab" data-bs-target="#historico" type="button" role="tab" aria-controls="historico" aria-selected="true">Histórico</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="monetario-tab" data-bs-toggle="tab" data-bs-target="#monetario" type="button" role="tab" aria-controls="monetario" aria-selected="false">Valores Monetarios</button>
+                    <button class="btn5 nav-link text-dark" id="monetario-tab" data-bs-toggle="tab" data-bs-target="#monetario" type="button" role="tab" aria-controls="monetario" aria-selected="false">Valores Monetarios</button>
                 </li>
             </ul>
             <!-- Tab panes -->
@@ -164,14 +97,14 @@ $sql_total_manillas = 'SELECT COUNT(numero_manilla) as total FROM visitantes WHE
                             </div>
                             <div class="col-md-3 d-flex gap-2">
                                 <input type="date" id="filtroFechaDesde" class="form-control" placeholder="Desde">
-                                <input type="date" id="filtroFechaHasta" class="form-control" placeholder="Hasta">
+                                <input type="date" id="filtroFechaHasta" class="form-control hasta" placeholder="Hasta">
                             </div>
                         </div>
                         <div class="mb-3">
                             <button id="btnExcel" class="btn btn-success">Exportar a Excel</button>
                             <button id="btnPDF" class="btn btn-danger">Exportar a PDF</button>
                         </div>
-                        <div class="table-responsive" style="max-width:100%; overflow-x:auto;">
+                        <div class="table-responsive mt-3" style="max-width:100%; overflow-x:auto;">
                         <table class="table table-striped table-bordered align-middle" id="tablaInforme">
                             <thead class="table-light">
                                 <tr>
@@ -292,7 +225,8 @@ $sql_total_manillas = 'SELECT COUNT(numero_manilla) as total FROM visitantes WHE
                                             . '</tr>';
                                     }
                                 } else {
-                                    echo '<tr><td colspan="8">No se encontraron huéspedes con manillas suministradas.</td></tr>';
+                                    echo '<tr><td colspan="8">No se encontraron huéspedes con manillas suministradas.</td>
+                                        </tr>';
                                 }
                                 ?>
                                 </tbody>
@@ -330,6 +264,25 @@ $sql_total_manillas = 'SELECT COUNT(numero_manilla) as total FROM visitantes WHE
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
     <script src="informes.js"></script>
+    <script>
+    $(document).ready(function() {
+    $('#tablaMonetario').DataTable({
+        pageLength: 5,
+        lengthChange: false,
+        dom: 'tip',
+        language: {
+            paginate: {
+                previous: "Anterior",
+                next: "Siguiente"
+            },
+            info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+            emptyTable: "No hay datos disponibles",
+            search: "Buscar:"
+        }
+    });
+});
+</script>
+</script>
 </body>
 </html>
 

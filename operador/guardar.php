@@ -107,7 +107,7 @@ if (isset($_POST['visitantes']) && is_array($_POST['visitantes'])) {
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'benjaminibarrajimnez@gmail.com';
-                $mail->Password = 'plju mndc idfq ckdp';
+                $mail->Password = 'irdf bdum laqc qltm';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = 587;
                 $mail->setFrom('tucorreo@gmail.com', 'Sistema de Ingreso');
@@ -136,7 +136,9 @@ if (isset($_POST['visitantes']) && is_array($_POST['visitantes'])) {
                 $body .= '<div style="text-align:center; margin-top: 30px;"><small style="color: #888;">Este es un mensaje automático del Sistema de Control de Ingreso.</small></div></div></div>';
                 $mail->Body = $body;
                 $mail->send();
-            } catch (Exception $e) {}
+            } catch (Exception $e) {
+                error_log('Mailer Error: ' . $mail->ErrorInfo);
+            }
         }
     }
     header("Location: index.php?registro=exitoso");

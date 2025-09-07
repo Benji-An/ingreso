@@ -129,6 +129,9 @@ $propietarios = $conexion->query("SELECT * FROM propietarios");
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -209,7 +212,7 @@ $propietarios = $conexion->query("SELECT * FROM propietarios");
         <div class="card mt-2" >
             <h3 class="mb-3">Lista de Propietarios</h3>
             <div class="table-responsive">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped" id="tabla-propietarios">
                     <thead>
                         <tr>
                             <th>Torre</th>
@@ -242,5 +245,29 @@ $propietarios = $conexion->query("SELECT * FROM propietarios");
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tabla-propietarios').DataTable({
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/es.json'
+                }
+            });
+        });
+        $(document).ready(function() {
+        $('#tablaPropietarios').DataTable({
+            "pageLength": 5,
+            "lengthChange": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                },
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ propietarios",
+                "emptyTable": "No hay propietarios registrados",
+                "search": "Buscar:"
+        }
+    });
+});
+    </script>
 </body>
 </html>

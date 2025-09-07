@@ -29,7 +29,7 @@
             <div class="field">
                 <input type="submit" value="Ingresar">
             </div>
-            <div class="signup-link"><a href="Registrarse.php">Registrarse Ahora</a></div>
+            <!-- <div class="signup-link"><a href="Registrarse.php">Registrarse Ahora</a></div> -->
         </form>
     </div>
 </body>
